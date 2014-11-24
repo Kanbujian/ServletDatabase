@@ -5,6 +5,8 @@
   <head>
     <title>My JSP 'book_list.jsp' starting page</title>
     <style type="text/css">
+    <%request.setCharacterEncoding("utf-8"); %>
+    <%response.setCharacterEncoding("utf-8");%>
     #customers
       {
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -37,7 +39,7 @@
   <body>
    <table id="customers">
    <tr>
-   <td align="center" colspan="4" >
+   <td align="center" colspan="5" >
    <h2>所有图书信息</h2>
    </td>
    </tr>
@@ -47,6 +49,7 @@
 <th>价格</th>
 <th>数量</th>
 <th>作者</th>
+<th>修改数量</th>
 </tr>
 
 <%
@@ -62,12 +65,20 @@
       <td><%=newBook.getPrice() %></td>
       <td><%=newBook.getBookCount() %></td>
       <td><%=newBook.getAuthor() %></td>
+        <td>
+      <form action="UpdateServlet" method="post" onsubmit="return check(this);">
+	      <input type="hidden" name="name" value="<%=newBook.getName() %>">
+	      <input type="text" name="bookCount" size="3">
+	      <input type="submit" value="修改">
+	   </form>
+      </td>
       </tr>
       
       <%
       }
       } %>
 
-</table>   
+</table>  
+</br> 
   </body>
 </html>
