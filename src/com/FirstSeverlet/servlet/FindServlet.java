@@ -56,6 +56,7 @@ public class FindServlet extends HttpServlet {
 			 List<book> list=new ArrayList<book>();
 			 while(rs.next()){
 				 book newBook=new book();
+				 newBook.setId(rs.getInt("id"));//添加id列（主键自增）记得在此处从数据库读取赋值
 				 newBook.setName(rs.getString("name"));
 				 newBook.setPrice(rs.getDouble("price"));
 				 newBook.setBookCount(rs.getInt("bookCount"));

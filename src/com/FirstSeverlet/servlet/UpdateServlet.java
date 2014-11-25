@@ -61,19 +61,20 @@ public class UpdateServlet extends HttpServlet {
         //一定要记得设置字符编码格式，否则中文为乱码，name无法匹配，也就无法修改
         //这两句反正保险一点
         response.setCharacterEncoding("utf-8");
-		String name=String.valueOf(request.getParameter("name"));
+		int id=Integer.valueOf(request.getParameter("id"));
 		int bookCount=Integer.valueOf(request.getParameter("bookCount"));
 		try{
 			 Class.forName("com.mysql.jdbc.Driver");
 			 String url="jdbc:mysql://localhost:3306/test";
 			 Connection conn=DriverManager.getConnection(url,"root","w969003");
 			 
-			 String Sql="update books set bookCount=? where name like ?";
+			 String Sql="update books set bookCount=? where id= ?";
 			 
 			 PreparedStatement pstmt=conn.prepareStatement(Sql);
 			 pstmt.setInt(1,bookCount);
-			 pstmt.setString(2,name);
+			 pstmt.setInt(2,id);
 			 pstmt.executeUpdate();
+			 System.out.println(id);
 			 if(pstmt!=null){
 					pstmt.close();
 					pstmt=null;

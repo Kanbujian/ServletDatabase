@@ -76,13 +76,13 @@
       <td><%=newBook.getAuthor() %></td>
         <td>
       <form action="UpdateServlet" method="post" onsubmit="return check(this);">
-	      <input type="hidden" name="name" value="<%=newBook.getName() %>">
+	      <input type="hidden" name="id" value="<%=newBook.getId() %>">
 	      <input type="text" name="bookCount" size="3">
 	      <input type="submit" value="修改">
 	   </form>
       </td>
       <td>
-      <a href="DeleteServlet?name=<%=newBook.getName() %>">删除</a>
+      <a href="DeleteServlet?id=<%=newBook.getId() %>">删除</a>
       </td>
       </tr>
       

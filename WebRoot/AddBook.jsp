@@ -18,7 +18,7 @@
 	   String url="jdbc:mysql://localhost:3306/test";
 	   Connection conn=DriverManager.getConnection(url,"root","w969003");
 	   
-	   String sql="insert into books (name,price,bookCount,author) values(?,?,?,?)";
+	   String sql="insert into books (name,price,bookCount,author) values(?,?,?,?);";
 	   PreparedStatement ps=conn.prepareStatement(sql);
 	   
 	   ps.setString (1,book.getName());

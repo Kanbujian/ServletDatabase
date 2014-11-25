@@ -44,17 +44,17 @@ public class DeleteServlet extends HttpServlet {
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
 	    response.setCharacterEncoding("utf-8");
-	    String name=String.valueOf(request.getParameter("name"));
+	    int id=Integer.valueOf(request.getParameter("id"));
 	    try{
 			 Class.forName("com.mysql.jdbc.Driver");
 			 String url="jdbc:mysql://localhost:3306/test";
 			 Connection conn=DriverManager.getConnection(url,"root","w969003");
 			 
-			 String Sql="delete from books where name like ?";
+			 String Sql="delete from books where id = ?;";
 			 
 			 PreparedStatement pstmt=conn.prepareStatement(Sql);
 			
-			 pstmt.setString(1,name);
+			 pstmt.setInt(1,id);
 			 pstmt.executeUpdate();
 			 if(pstmt!=null){
 					pstmt.close();
