@@ -29,6 +29,14 @@
   background-color:#A7C942;
   color:#ffffff;
   }
+  a{
+  text-decoration:none;
+  color:#66ff99;
+  }
+  a:hover{
+  text-decoration:underline;
+  color:#0022ff;
+  }
     </style>
     
 	
@@ -39,7 +47,7 @@
   <body>
    <table id="customers">
    <tr>
-   <td align="center" colspan="5" >
+   <td align="center" colspan="6" >
    <h2>所有图书信息</h2>
    </td>
    </tr>
@@ -50,6 +58,7 @@
 <th>数量</th>
 <th>作者</th>
 <th>修改数量</th>
+<th>删除</th>
 </tr>
 
 <%
@@ -72,13 +81,21 @@
 	      <input type="submit" value="修改">
 	   </form>
       </td>
+      <td>
+      <a href="DeleteServlet?name=<%=newBook.getName() %>">删除</a>
+      </td>
       </tr>
       
       <%
       }
       } %>
 
-</table>  
+</table> 
+<br>
+<br>
+<div align="center">
+<a href="/FirstSeverlet/index.jsp" >Back</a>
+</div> 
 </br> 
   </body>
 </html>
